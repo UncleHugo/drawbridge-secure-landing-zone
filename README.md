@@ -1,0 +1,2 @@
+# drawbridge-secure-landing-zone
+Secure Azure landing zone built by hand in Terraform — hub-and-spoke network, forced egress through Azure Firewall, Bastion-only access, policy-as-code guardrails, and CI security scanning with tfsec.
