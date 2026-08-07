@@ -42,6 +42,23 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_rules" {
     }
   }
 
+  # manage azure management and entra login
+  application_rule_collection {
+    name     = "allow-azure-management"
+    priority = 103
+    action   = "Allow"
+
+    rule {
+      name = "allow-arm-and-entra"
+      protocols {
+        type = "Https"
+        port = 443
+      }
+      source_addresses  = ["10.1.0.0/16"]
+      destination_fqdns = ["management.azure.com", "login.microsoftonline.com"]
+    }
+  }
+  
   application_rule_collection {
     name     = "allow-outbound-web"
     priority = 105
