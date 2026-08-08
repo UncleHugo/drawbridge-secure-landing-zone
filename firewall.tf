@@ -58,7 +58,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_rules" {
       destination_fqdns = ["management.azure.com", "login.microsoftonline.com"]
     }
   }
-  
+
   application_rule_collection {
     name     = "allow-outbound-web"
     priority = 105
