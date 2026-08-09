@@ -3,11 +3,6 @@ variable "sub_id" {
   description = "Subscription ID for the Azure account"
 }
 
-variable "tenant_id" {
-  type        = string
-  description = "Tenant ID for the Azure account"
-}
-
 variable "location" {
   type        = string
   description = "Azure region for the resources"

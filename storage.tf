@@ -1,6 +1,6 @@
 #storage account for drawbridge environment
 resource "azurerm_storage_account" "drawbridgestorage" {
-  name                     = "stdrawbridgehugo2609" # globally unique
+  name                     = "stdrawbridgehugo260994" # globally unique
   resource_group_name      = azurerm_resource_group.mainRG.name
   location                 = azurerm_resource_group.mainRG.location
   account_tier             = "Standard"
