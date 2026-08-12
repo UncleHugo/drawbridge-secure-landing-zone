@@ -42,6 +42,27 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_rules" {
     }
   }
 
+  # Allow Azure tooling
+  application_rule_collection {
+    name     = "allow-azure-tooling"
+    priority = 110
+    action   = "Allow"
+
+    rule {
+      name = "allow-arm-and-entra"
+      protocols {
+        type = "Https"
+        port = 443
+      }
+      source_addresses = ["10.1.0.0/16"]
+      destination_fqdns = [
+        "aka.ms",
+        "azurecliprod.blob.core.windows.net",
+        "packages.microsoft.com",
+      ]
+    }
+  }
+
   # manage azure management and entra login
   application_rule_collection {
     name     = "allow-azure-management"
